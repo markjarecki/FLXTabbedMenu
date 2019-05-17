@@ -10,6 +10,14 @@
 		DA49EDA8228EB0F70069E6AB /* FLXTabbedMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA49ED9E228EB0F70069E6AB /* FLXTabbedMenu.framework */; };
 		DA49EDAD228EB0F70069E6AB /* FLXTabbedMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDAC228EB0F70069E6AB /* FLXTabbedMenuTests.swift */; };
 		DA49EDAF228EB0F70069E6AB /* FLXTabbedMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA49EDBF228EB6C70069E6AB /* FLXTabbedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDBE228EB6C70069E6AB /* FLXTabbedMenu.swift */; };
+		DA49EDC1228EB7400069E6AB /* FLXTabbedMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC0228EB7400069E6AB /* FLXTabbedMenuModel.swift */; };
+		DA49EDC3228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */; };
+		DA49EDC6228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC5228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift */; };
+		DA49EDC8228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC7228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift */; };
+		DA49EDCA228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC9228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift */; };
+		DAC01439228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC01438228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift */; };
+		DAC0143C228EE3E100502DA6 /* FLXPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0143B228EE3E100502DA6 /* FLXPressGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,14 @@
 		DA49EDA7228EB0F70069E6AB /* FLXTabbedMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLXTabbedMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49EDAC228EB0F70069E6AB /* FLXTabbedMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuTests.swift; sourceTree = "<group>"; };
 		DA49EDAE228EB0F70069E6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA49EDBE228EB6C70069E6AB /* FLXTabbedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenu.swift; sourceTree = "<group>"; };
+		DA49EDC0228EB7400069E6AB /* FLXTabbedMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuModel.swift; sourceTree = "<group>"; };
+		DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuDelegate.swift; sourceTree = "<group>"; };
+		DA49EDC5228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuModelType.swift; sourceTree = "<group>"; };
+		DA49EDC7228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuMainCategoryModel.swift; sourceTree = "<group>"; };
+		DA49EDC9228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuSubCategoryModel.swift; sourceTree = "<group>"; };
+		DAC01438228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuIndexPath.swift; sourceTree = "<group>"; };
+		DAC0143B228EE3E100502DA6 /* FLXPressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXPressGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,11 @@
 		DA49EDA0228EB0F70069E6AB /* FLXTabbedMenu */ = {
 			isa = PBXGroup;
 			children = (
+				DA49EDBE228EB6C70069E6AB /* FLXTabbedMenu.swift */,
+				DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */,
+				DAC0143D228EE3F400502DA6 /* Custom gesture recgnizer */,
+				DAC0143A228EDCD100502DA6 /* Entity */,
+				DA49EDC4228EBF290069E6AB /* Models */,
 				DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */,
 				DA49EDA2228EB0F70069E6AB /* Info.plist */,
 			);
@@ -84,6 +105,33 @@
 				DA49EDAE228EB0F70069E6AB /* Info.plist */,
 			);
 			path = FLXTabbedMenuTests;
+			sourceTree = "<group>";
+		};
+		DA49EDC4228EBF290069E6AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA49EDC5228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift */,
+				DA49EDC0228EB7400069E6AB /* FLXTabbedMenuModel.swift */,
+				DA49EDC7228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift */,
+				DA49EDC9228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DAC0143A228EDCD100502DA6 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DAC01438228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DAC0143D228EE3F400502DA6 /* Custom gesture recgnizer */ = {
+			isa = PBXGroup;
+			children = (
+				DAC0143B228EE3E100502DA6 /* FLXPressGestureRecognizer.swift */,
+			);
+			path = "Custom gesture recgnizer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +196,7 @@
 				TargetAttributes = {
 					DA49ED9D228EB0F70069E6AB = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					DA49EDA6228EB0F70069E6AB = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -194,6 +243,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC0143C228EE3E100502DA6 /* FLXPressGestureRecognizer.swift in Sources */,
+				DA49EDC1228EB7400069E6AB /* FLXTabbedMenuModel.swift in Sources */,
+				DA49EDC3228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift in Sources */,
+				DA49EDCA228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift in Sources */,
+				DAC01439228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift in Sources */,
+				DA49EDC8228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift in Sources */,
+				DA49EDBF228EB6C70069E6AB /* FLXTabbedMenu.swift in Sources */,
+				DA49EDC6228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +398,7 @@
 		DA49EDB3228EB0F70069E6AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +416,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fluxom.FLXTabbedMenu;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +425,7 @@
 		DA49EDB4228EB0F70069E6AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +451,7 @@
 		DA49EDB6228EB0F70069E6AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T2J2MP846S;
 				INFOPLIST_FILE = FLXTabbedMenuTests/Info.plist;
@@ -409,6 +470,7 @@
 		DA49EDB7228EB0F70069E6AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T2J2MP846S;
 				INFOPLIST_FILE = FLXTabbedMenuTests/Info.plist;

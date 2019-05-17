@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import FLXTabbedMenu
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
+
+    // MARK: - Properties
+    
+    
+    
+
+    // MARK: - Lifecycle overrides
 
     override func viewDidLoad() {
     
@@ -17,8 +25,17 @@ class MainViewController: UIViewController {
         // Basic view properties
         view.backgroundColor = .white
 
+        
+
+
     }
 
 
 }
 
+//
+//extension MainViewController: FLXTabbedMenuDelegate {
+//
+//    
+//
+//}
