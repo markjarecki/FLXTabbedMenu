@@ -22,21 +22,11 @@ open class FLXTabbedMenu: UIView {
     
     // MARK: Index paths
     
-    internal(set) public var highlightedPath: FLXTabbedMenuIndexPath? {
+    internal(set) public var indexPath: FLXTabbedMenuIndexPath? {
     
         didSet {
         
-            /// Notify delegate of highlight
-        
-        }
-    
-    }
-    
-    internal(set) public var selectedPath: FLXTabbedMenuIndexPath? {
-    
-        didSet {
-        
-            /// Notify delegate of selection
+            /// Notify delegate of diff
         
         }
     
@@ -104,6 +94,12 @@ open class FLXTabbedMenu: UIView {
     
     /// Highlighting / unhighlighting
     
+    /**
+     
+        Only need to highlight when engaging from Gesture recognizer.
+ 
+    */
+    
     public func highlightMainCategory(withId id: String) {
     
         
@@ -116,19 +112,13 @@ open class FLXTabbedMenu: UIView {
     
     }
     
-    public func unhighlightMainCategory(withId id: String) {
-    
-        
-    
-    }
-    
-    public func unhighlightSubCategory(withId id: String) {
-    
-        
-    
-    }
-    
     /// Selecting / deselecting
+    
+    /**
+     
+        Only need to select when engaging from Gesture recognizer.
+ 
+    */
     
     public func selectMainCategory(withId id: String) {
     
@@ -137,18 +127,6 @@ open class FLXTabbedMenu: UIView {
     }
     
     public func selectSubCategory(withId id: String) {
-    
-        
-    
-    }
-    
-    public func deselectMainCategory(withId id: String) {
-    
-        
-    
-    }
-    
-    public func deselectSubCategory(withId id: String) {
     
         
     
