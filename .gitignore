@@ -173,3 +173,4 @@ playground.xcworkspace
 
 # End of https://www.gitignore.io/api/osx,xcode,swift,objective-c
 FLXTabbedMenu.xcworkspace/xcuserdata/markjarecki.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
