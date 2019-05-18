@@ -13,7 +13,7 @@ final class MainViewController: UIViewController {
 
     // MARK: - Properties
     
-    
+    let menu = FLXTabbedMenu()
     
 
     // MARK: - Lifecycle overrides
@@ -22,20 +22,35 @@ final class MainViewController: UIViewController {
     
         super.viewDidLoad()
         
-        // Basic view properties
-        view.backgroundColor = .white
+        /// View properties
+        view.backgroundColor = .gray
 
+        /// Add the menu
+        menu.delegate = self
         
-
+        view.addSubview(menu)
 
     }
-
+    
+//    override func viewWillLayoutSubviews() {
+//
+//        NSLayoutConstraint.activate([
+//
+//
+//
+//        ])
+//
+//    }
 
 }
 
-//
-//extension MainViewController: FLXTabbedMenuDelegate {
-//
-//    
-//
-//}
+
+extension MainViewController: FLXTabbedMenuDelegate {
+
+    func numberOfCategories(in tabbedMenu: FLXTabbedMenu) -> Int {
+    
+        return 5
+    
+    }
+
+}

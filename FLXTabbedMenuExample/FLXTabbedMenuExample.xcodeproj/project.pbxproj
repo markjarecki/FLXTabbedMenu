@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA3A2D7E22903B9100E71B7E /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D7D22903B9100E71B7E /* MenuModel.swift */; };
 		DA49ED83228EB0A60069E6AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49ED82228EB0A60069E6AB /* AppDelegate.swift */; };
 		DA49ED85228EB0A60069E6AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49ED84228EB0A60069E6AB /* ViewController.swift */; };
 		DA49ED8A228EB0A60069E6AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA49ED89228EB0A60069E6AB /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DA3A2D7D22903B9100E71B7E /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		DA49ED7F228EB0A60069E6AB /* FLXTabbedMenuExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLXTabbedMenuExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49ED82228EB0A60069E6AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA49ED84228EB0A60069E6AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				DA49ED82228EB0A60069E6AB /* AppDelegate.swift */,
 				DA49ED84228EB0A60069E6AB /* ViewController.swift */,
+				DA3A2D7D22903B9100E71B7E /* MenuModel.swift */,
 				DA49ED89228EB0A60069E6AB /* Assets.xcassets */,
 				DA49ED8B228EB0A60069E6AB /* LaunchScreen.storyboard */,
 				DA49ED8E228EB0A60069E6AB /* Info.plist */,
@@ -161,6 +164,7 @@
 			files = (
 				DA49ED85228EB0A60069E6AB /* ViewController.swift in Sources */,
 				DA49ED83228EB0A60069E6AB /* AppDelegate.swift in Sources */,
+				DA3A2D7E22903B9100E71B7E /* MenuModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,16 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA3A2D79229032A900E71B7E /* FLXTabbedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D78229032A900E71B7E /* FLXTabbedMenuItem.swift */; };
+		DA3A2D80229055D700E71B7E /* FLXTabbedMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D7F229055D700E71B7E /* FLXTabbedMenuModel.swift */; };
+		DA3A2D8322906C9E00E71B7E /* FLXCategorySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D8222906C9E00E71B7E /* FLXCategorySelector.swift */; };
 		DA49EDA8228EB0F70069E6AB /* FLXTabbedMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA49ED9E228EB0F70069E6AB /* FLXTabbedMenu.framework */; };
 		DA49EDAD228EB0F70069E6AB /* FLXTabbedMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDAC228EB0F70069E6AB /* FLXTabbedMenuTests.swift */; };
 		DA49EDAF228EB0F70069E6AB /* FLXTabbedMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA49EDBF228EB6C70069E6AB /* FLXTabbedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDBE228EB6C70069E6AB /* FLXTabbedMenu.swift */; };
-		DA49EDC1228EB7400069E6AB /* FLXTabbedMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC0228EB7400069E6AB /* FLXTabbedMenuModel.swift */; };
 		DA49EDC3228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */; };
-		DA49EDC6228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC5228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift */; };
-		DA49EDC8228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC7228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift */; };
-		DA49EDCA228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC9228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift */; };
-		DAC01439228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC01438228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift */; };
 		DAC0143C228EE3E100502DA6 /* FLXPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0143B228EE3E100502DA6 /* FLXPressGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA3A2D78229032A900E71B7E /* FLXTabbedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuItem.swift; sourceTree = "<group>"; };
+		DA3A2D7F229055D700E71B7E /* FLXTabbedMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuModel.swift; sourceTree = "<group>"; };
+		DA3A2D8222906C9E00E71B7E /* FLXCategorySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXCategorySelector.swift; sourceTree = "<group>"; };
 		DA49ED9E228EB0F70069E6AB /* FLXTabbedMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLXTabbedMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLXTabbedMenu.h; sourceTree = "<group>"; };
 		DA49EDA2228EB0F70069E6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,12 +39,7 @@
 		DA49EDAC228EB0F70069E6AB /* FLXTabbedMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuTests.swift; sourceTree = "<group>"; };
 		DA49EDAE228EB0F70069E6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA49EDBE228EB6C70069E6AB /* FLXTabbedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenu.swift; sourceTree = "<group>"; };
-		DA49EDC0228EB7400069E6AB /* FLXTabbedMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuModel.swift; sourceTree = "<group>"; };
 		DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuDelegate.swift; sourceTree = "<group>"; };
-		DA49EDC5228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuModelType.swift; sourceTree = "<group>"; };
-		DA49EDC7228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuMainCategoryModel.swift; sourceTree = "<group>"; };
-		DA49EDC9228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuSubCategoryModel.swift; sourceTree = "<group>"; };
-		DAC01438228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuIndexPath.swift; sourceTree = "<group>"; };
 		DAC0143B228EE3E100502DA6 /* FLXPressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXPressGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +62,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA3A2D7A229032B200E71B7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA3A2D7B2290335F00E71B7E /* Menu */,
+				DA3A2D8422906D0F00E71B7E /* Containers */,
+				DA3A2D7C2290336900E71B7E /* Menu item */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA3A2D7B2290335F00E71B7E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DA49EDBE228EB6C70069E6AB /* FLXTabbedMenu.swift */,
+				DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		DA3A2D7C2290336900E71B7E /* Menu item */ = {
+			isa = PBXGroup;
+			children = (
+				DA3A2D78229032A900E71B7E /* FLXTabbedMenuItem.swift */,
+			);
+			path = "Menu item";
+			sourceTree = "<group>";
+		};
+		DA3A2D81229055DA00E71B7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA3A2D7F229055D700E71B7E /* FLXTabbedMenuModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA3A2D8422906D0F00E71B7E /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				DA3A2D8222906C9E00E71B7E /* FLXCategorySelector.swift */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
 		DA49ED94228EB0F70069E6AB = {
 			isa = PBXGroup;
 			children = (
@@ -87,11 +126,9 @@
 		DA49EDA0228EB0F70069E6AB /* FLXTabbedMenu */ = {
 			isa = PBXGroup;
 			children = (
-				DA49EDBE228EB6C70069E6AB /* FLXTabbedMenu.swift */,
-				DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */,
-				DAC0143D228EE3F400502DA6 /* Custom gesture recgnizer */,
-				DAC0143A228EDCD100502DA6 /* Entity */,
-				DA49EDC4228EBF290069E6AB /* Models */,
+				DA3A2D7A229032B200E71B7E /* View */,
+				DA3A2D81229055DA00E71B7E /* Model */,
+				DAC0143D228EE3F400502DA6 /* Custom gesture recognizer */,
 				DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */,
 				DA49EDA2228EB0F70069E6AB /* Info.plist */,
 			);
@@ -107,31 +144,12 @@
 			path = FLXTabbedMenuTests;
 			sourceTree = "<group>";
 		};
-		DA49EDC4228EBF290069E6AB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				DA49EDC5228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift */,
-				DA49EDC0228EB7400069E6AB /* FLXTabbedMenuModel.swift */,
-				DA49EDC7228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift */,
-				DA49EDC9228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		DAC0143A228EDCD100502DA6 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				DAC01438228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		DAC0143D228EE3F400502DA6 /* Custom gesture recgnizer */ = {
+		DAC0143D228EE3F400502DA6 /* Custom gesture recognizer */ = {
 			isa = PBXGroup;
 			children = (
 				DAC0143B228EE3E100502DA6 /* FLXPressGestureRecognizer.swift */,
 			);
-			path = "Custom gesture recgnizer";
+			path = "Custom gesture recognizer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,13 +262,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC0143C228EE3E100502DA6 /* FLXPressGestureRecognizer.swift in Sources */,
-				DA49EDC1228EB7400069E6AB /* FLXTabbedMenuModel.swift in Sources */,
+				DA3A2D79229032A900E71B7E /* FLXTabbedMenuItem.swift in Sources */,
 				DA49EDC3228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift in Sources */,
-				DA49EDCA228ECBA80069E6AB /* FLXTabbedMenuSubCategoryModel.swift in Sources */,
-				DAC01439228EDCC800502DA6 /* FLXTabbedMenuIndexPath.swift in Sources */,
-				DA49EDC8228EC8980069E6AB /* FLXTabbedMenuMainCategoryModel.swift in Sources */,
+				DA3A2D80229055D700E71B7E /* FLXTabbedMenuModel.swift in Sources */,
 				DA49EDBF228EB6C70069E6AB /* FLXTabbedMenu.swift in Sources */,
-				DA49EDC6228EBF5F0069E6AB /* FLXTabbedMenuModelType.swift in Sources */,
+				DA3A2D8322906C9E00E71B7E /* FLXCategorySelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
