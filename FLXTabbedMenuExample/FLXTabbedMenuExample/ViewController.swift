@@ -12,9 +12,10 @@ import FLXTabbedMenu
 final class MainViewController: UIViewController {
 
     // MARK: - Properties
-    
+
+    // MARK: Subviews
+
     let menu = FLXTabbedMenu()
-    
 
     // MARK: - Lifecycle overrides
 
@@ -36,12 +37,13 @@ final class MainViewController: UIViewController {
 
 }
 
+// MARK: - FLXTabbedMenuDelegate conformance
 
 extension MainViewController: FLXTabbedMenuDelegate {
 
     func numberOfCategories(in tabbedMenu: FLXTabbedMenu) -> Int {
     
-        return 5
+        return model().count
     
     }
 

@@ -29,29 +29,55 @@ func model() -> [MenuCategory] {
                                 image: nil,
                                 text: "Accounts",
                                 subCategories: [
-                                     MenuSubCategory(image: nil, text: "Home 1"),
-                                     MenuSubCategory(image: nil, text: "Home 2"),
-                                     MenuSubCategory(image: nil, text: "Home 3")
+                                     MenuSubCategory(image: nil, text: "Sub category 1"),
+                                     MenuSubCategory(image: nil, text: "Sub category 2"),
+                                     MenuSubCategory(image: nil, text: "Sub category 3"),
+                                     MenuSubCategory(image: nil, text: "Sub category 4")
                             ])
     
-    let anotherCategory = MenuCategory(
+    let investmentsCategory = MenuCategory(
                                 image: nil,
-                                text: "Another",
+                                text: "Investments",
                                 subCategories: [
-                                     MenuSubCategory(image: nil, text: "Home 1"),
-                                     MenuSubCategory(image: nil, text: "Home 2"),
-                                     MenuSubCategory(image: nil, text: "Home 3"),
-                                     MenuSubCategory(image: nil, text: "Home 4"),
-                                     MenuSubCategory(image: nil, text: "Home 5")
+                                     MenuSubCategory(image: nil, text: "Sub category 1"),
+                                     MenuSubCategory(image: nil, text: "Sub category 2"),
+                                     MenuSubCategory(image: nil, text: "Sub category 3"),
+                                     MenuSubCategory(image: nil, text: "Sub category 4"),
+                                     MenuSubCategory(image: nil, text: "Sub category 5")
                             ])
     
     let transfersCategory = MenuCategory(
                                 image: nil,
                                 text: "Transfers",
                                 subCategories: [
-                                     MenuSubCategory(image: nil, text: "Home 1")
+                                     MenuSubCategory(image: nil, text: "Sub category 1")
+                            ])
+    
+    let communicationsCategory = MenuCategory(
+                                image: nil,
+                                text: "Communications",
+                                subCategories: [
+                                     MenuSubCategory(image: nil, text: "Sub category 1"),
+                                     MenuSubCategory(image: nil, text: "Sub category 2"),
+                                     MenuSubCategory(image: nil, text: "Sub category 3"),
+                                     MenuSubCategory(image: nil, text: "Sub category 4"),
+                                     MenuSubCategory(image: nil, text: "Sub category 5"),
+                                     MenuSubCategory(image: nil, text: "Sub category 6")
+                            ])
+    
+    
+    let settingsCategory = MenuCategory(
+                                image: nil,
+                                text: "Settings",
+                                subCategories: [
+                                     MenuSubCategory(image: nil, text: "Sub category 1"),
+                                     MenuSubCategory(image: nil, text: "Sub category 2"),
+                                     MenuSubCategory(image: nil, text: "Sub category 3"),
+                                     MenuSubCategory(image: nil, text: "Sub category 4"),
+                                     MenuSubCategory(image: nil, text: "Sub category 5"),
+                                     MenuSubCategory(image: nil, text: "Sub category 6"),
                             ])
 
-    return [accountsCategory, anotherCategory, transfersCategory]
+    return [accountsCategory, investmentsCategory, transfersCategory, communicationsCategory, settingsCategory]
 
 }

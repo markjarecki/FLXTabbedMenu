@@ -10,6 +10,7 @@
 		DA3A2D79229032A900E71B7E /* FLXTabbedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D78229032A900E71B7E /* FLXTabbedMenuItem.swift */; };
 		DA3A2D80229055D700E71B7E /* FLXTabbedMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D7F229055D700E71B7E /* FLXTabbedMenuModel.swift */; };
 		DA3A2D8322906C9E00E71B7E /* FLXCategorySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D8222906C9E00E71B7E /* FLXCategorySelector.swift */; };
+		DA3A2D88229096C200E71B7E /* FLXSubCategorySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D87229096C200E71B7E /* FLXSubCategorySelector.swift */; };
 		DA49EDA8228EB0F70069E6AB /* FLXTabbedMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA49ED9E228EB0F70069E6AB /* FLXTabbedMenu.framework */; };
 		DA49EDAD228EB0F70069E6AB /* FLXTabbedMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDAC228EB0F70069E6AB /* FLXTabbedMenuTests.swift */; };
 		DA49EDAF228EB0F70069E6AB /* FLXTabbedMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +33,7 @@
 		DA3A2D78229032A900E71B7E /* FLXTabbedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuItem.swift; sourceTree = "<group>"; };
 		DA3A2D7F229055D700E71B7E /* FLXTabbedMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuModel.swift; sourceTree = "<group>"; };
 		DA3A2D8222906C9E00E71B7E /* FLXCategorySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXCategorySelector.swift; sourceTree = "<group>"; };
+		DA3A2D87229096C200E71B7E /* FLXSubCategorySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXSubCategorySelector.swift; sourceTree = "<group>"; };
 		DA49ED9E228EB0F70069E6AB /* FLXTabbedMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLXTabbedMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLXTabbedMenu.h; sourceTree = "<group>"; };
 		DA49EDA2228EB0F70069E6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3A2D8222906C9E00E71B7E /* FLXCategorySelector.swift */,
+				DA3A2D87229096C200E71B7E /* FLXSubCategorySelector.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3A2D88229096C200E71B7E /* FLXSubCategorySelector.swift in Sources */,
 				DAC0143C228EE3E100502DA6 /* FLXPressGestureRecognizer.swift in Sources */,
 				DA3A2D79229032A900E71B7E /* FLXTabbedMenuItem.swift in Sources */,
 				DA49EDC3228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift in Sources */,

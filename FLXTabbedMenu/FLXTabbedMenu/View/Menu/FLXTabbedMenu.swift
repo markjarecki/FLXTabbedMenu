@@ -31,7 +31,7 @@ open class FLXTabbedMenu: UIView {
     // MARK: Subviews
     
     public private(set) var categorySelector: FLXCategorySelector = FLXCategorySelector()
-//    public private(set) var subCategorySelector: UIView = UIView()
+    public private(set) var subCategorySelectors: [FLXSubCategorySelector] = []
     
     // MARK: Inbuilt gesture recognizer
     
@@ -112,19 +112,12 @@ open class FLXTabbedMenu: UIView {
         /// Constraints
         translatesAutoresizingMaskIntoConstraints = false
         categorySelector.translatesAutoresizingMaskIntoConstraints = false
-//        subCategorySelector.translatesAutoresizingMaskIntoConstraints = false
 
         /// Subviews
         addSubview(categorySelector)
 //        addSubview(subCategorySelector)
         
     }
-    
-//    private func setUpConstraints() {
-//
-//
-//
-//    }
     
     private func setUpGestures() {
         
@@ -136,17 +129,6 @@ open class FLXTabbedMenu: UIView {
         }
         
     }
-    
-//    private func setUpMenu() {
-//
-//        print(delegate)
-//
-//        guard let numberOfCategories = delegate?.numberOfCategories(in: self) else { return }
-//
-//        print(numberOfCategories)
-//
-//
-//    }
     
     // MARK: - Private gesture handler
     
