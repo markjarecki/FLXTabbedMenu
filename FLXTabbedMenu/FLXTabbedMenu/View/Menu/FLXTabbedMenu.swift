@@ -100,7 +100,80 @@ open class FLXTabbedMenu: UIView {
 
     }
     
-    // MARK: - Public methods
+    // MARK: - Private methods
+    
+    private func setUpView() {
+        
+        /// View properties
+//        isOpaque = false
+//        backgroundColor = .clear
+        backgroundColor = .red
+
+        /// Constraints
+        translatesAutoresizingMaskIntoConstraints = false
+        categorySelector.translatesAutoresizingMaskIntoConstraints = false
+//        subCategorySelector.translatesAutoresizingMaskIntoConstraints = false
+
+        /// Subviews
+        addSubview(categorySelector)
+//        addSubview(subCategorySelector)
+        
+    }
+    
+//    private func setUpConstraints() {
+//
+//
+//
+//    }
+    
+    private func setUpGestures() {
+        
+        /// Add built-in press gesture recognizer if override flag has not been set
+        if useBuiltinGestures {
+        
+            self.addGestureRecognizer(pressGestureRecognizer)
+            
+        }
+        
+    }
+    
+//    private func setUpMenu() {
+//
+//        print(delegate)
+//
+//        guard let numberOfCategories = delegate?.numberOfCategories(in: self) else { return }
+//
+//        print(numberOfCategories)
+//
+//
+//    }
+    
+    // MARK: - Private gesture handler
+    
+    @objc private func handler(press: FLXPressGestureRecognizer) {
+    
+        print("PRESSED")
+    
+    }
+    
+}
+
+// MARK: - Public methods
+
+extension FLXTabbedMenu {
+    
+    /// Show / hide
+    public func show(withSelectedCategoryIndex index: Int) {
+    
+        
+    
+    }
+    
+    public func hide() {
+    
+        
+    
+    }
     
     /// Getting menu item views
     public func categoryMenuItem(at index: Int) -> FLXTabbedMenuItem? {
@@ -151,61 +224,5 @@ open class FLXTabbedMenu: UIView {
         
     
     }
-    
-    // MARK: - Private methods
-    
-    private func setUpView() {
-        
-        /// View properties
-//        isOpaque = false
-//        backgroundColor = .clear
-        backgroundColor = .red
 
-        /// Constraints
-        translatesAutoresizingMaskIntoConstraints = false
-        categorySelector.translatesAutoresizingMaskIntoConstraints = false
-//        subCategorySelector.translatesAutoresizingMaskIntoConstraints = false
-
-        /// Subviews
-        addSubview(categorySelector)
-//        addSubview(subCategorySelector)
-        
-    }
-    
-//    private func setUpConstraints() {
-//
-//
-//
-//    }
-    
-    private func setUpGestures() {
-        
-        /// Add built-in press gesture recognizer if override flag has not been set
-        if useBuiltinGestures {
-        
-            self.addGestureRecognizer(pressGestureRecognizer)
-            
-        }
-        
-    }
-    
-    private func setUpMenu() {
-    
-        print(delegate)
-    
-        guard let numberOfCategories = delegate?.numberOfCategories(in: self) else { return }
-    
-        print(numberOfCategories)
-        
-    
-    }
-    
-    // MARK: - Private gesture handler
-    
-    @objc private func handler(press: FLXPressGestureRecognizer) {
-    
-        print("PRESSED")
-    
-    }
-    
 }

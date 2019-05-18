@@ -27,20 +27,12 @@ final class MainViewController: UIViewController {
 
         /// Add the menu
         menu.delegate = self
-        
         view.addSubview(menu)
+        
+        /// Show the menu
+        menu.show(withSelectedCategoryIndex: 0)
 
     }
-    
-//    override func viewWillLayoutSubviews() {
-//
-//        NSLayoutConstraint.activate([
-//
-//
-//
-//        ])
-//
-//    }
 
 }
 
