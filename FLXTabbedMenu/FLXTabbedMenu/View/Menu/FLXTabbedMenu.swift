@@ -147,13 +147,28 @@ extension FLXTabbedMenu {
     /// Show / hide
     public func show(withSelectedCategoryIndex index: Int) {
     
+        /// Set up the menu
+        
+        /// If no model, menu has never initialised
+        if model == nil {
+        
+        
+        
+        
+        } else {
+        
+        
+        
+        }
+        
+        // Present menu with an animation
         
     
     }
     
     public func hide() {
     
-        
+        // Dismiss the menu with an animation
     
     }
     
