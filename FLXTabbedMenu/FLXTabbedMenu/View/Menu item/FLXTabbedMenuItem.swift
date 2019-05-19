@@ -14,28 +14,53 @@ public class FLXTabbedMenuItem: UIView {
     
     // MARK: Subviews
     
-    public let image = UIImageView()
     public let label = UILabel()
+    public let image = UIImageView()
     
     // MARK: Mutable
     
     public var highlighted: Bool = false
     public var selected: Bool = false
     
-//    // MARK: - Initialisers
-//
-//    public override init(frame: CGRect) {
-//
-//        super.init(frame: frame)
-//
-//
-//
-//    }
-//
-//    required public init?(coder aDecoder: NSCoder) {
-//
-//        fatalError("init(coder:) has not been implemented")
-//
-//    }
+    // MARK: - Initialisers
+    
+    override init(frame: CGRect) {
+        
+        super.init(frame: frame)
+        
+        setupView()
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+        
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupView() {
+        
+        /// Add subviews
+        addSubview(label)
+        addSubview(image)
+        
+        /// Constraints
+        label.translatesAutoresizingMaskIntoConstraints = false
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        /// Update the constraints
+        NSLayoutConstraint.activate([
+            
+            /// Image
+            image.heightAnchor.constraint(equalTo: heightAnchor),
+            image.widthAnchor.constraint(equalTo: heightAnchor),
+            image.centerXAnchor.constraint(equalTo: centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: centerYAnchor)
+            
+        ])
+        
+    }
     
 }

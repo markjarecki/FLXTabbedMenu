@@ -26,3 +26,18 @@ struct FLXTabbedMenuModel {
 
 }
 
+// MARK: - Equatable conformance
+
+extension FLXTabbedMenuModel: Equatable {
+    
+    static func ==(lhs: FLXTabbedMenuModel, rhs: FLXTabbedMenuModel) -> Bool {
+        
+        return
+                lhs.selectedCategory == rhs.selectedCategory &&
+                lhs.selectedSubCategory == rhs.selectedSubCategory &&
+                lhs.highlightedCategory == rhs.highlightedCategory &&
+                lhs.highlightedSubCategory == rhs.highlightedSubCategory
+        
+    }
+    
+}

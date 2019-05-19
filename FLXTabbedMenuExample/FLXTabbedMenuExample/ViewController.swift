@@ -30,8 +30,13 @@ final class MainViewController: UIViewController {
         menu.delegate = self
         view.addSubview(menu)
         
-        /// Show the menu
-        menu.show(withSelectedCategoryIndex: 0)
+        /// Simulate event after rendering RVC
+        DispatchQueue.main.async { [unowned self] in
+            
+            /// Show the menu
+            self.menu.show(withSelectedCategoryIndex: 0)
+            
+        }
 
     }
 
@@ -40,11 +45,20 @@ final class MainViewController: UIViewController {
 // MARK: - FLXTabbedMenuDelegate conformance
 
 extension MainViewController: FLXTabbedMenuDelegate {
-
-    func numberOfCategories(in tabbedMenu: FLXTabbedMenu) -> Int {
     
-        return model().count
-    
+    func categoryViewModels(forTabbedMenu tabbedMenu: FLXTabbedMenu) -> [CategoryViewModel] {
+        
+        return model().map{ (category: $0.text, image: $0.image) }
+        
     }
-
+    
+    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, subCategoryViewModelAtIndex index: Int) -> SubCategoryViewModel {
+        
+        let category = model()[index]
+        let subcategories = category.subCategories.map{ (category: $0.text, image: $0.image) }
+        
+        return (category: category.text, subCategories: subcategories)
+        
+    }
+    
 }

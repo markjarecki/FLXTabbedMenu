@@ -75,7 +75,7 @@ func model() -> [MenuCategory] {
                                      MenuSubCategory(image: nil, text: "Sub category 3"),
                                      MenuSubCategory(image: nil, text: "Sub category 4"),
                                      MenuSubCategory(image: nil, text: "Sub category 5"),
-                                     MenuSubCategory(image: nil, text: "Sub category 6"),
+                                     MenuSubCategory(image: nil, text: "Sub category 6")
                             ])
 
     return [accountsCategory, investmentsCategory, transfersCategory, communicationsCategory, settingsCategory]
