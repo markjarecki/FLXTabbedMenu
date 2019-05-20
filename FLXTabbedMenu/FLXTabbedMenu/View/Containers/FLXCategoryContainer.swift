@@ -16,9 +16,8 @@ class FLXCategoryContainer: UIView {
 
     // MARK:  Overridable default properties
     
-    var _backgroundColor: UIColor = .white
-    var _cornerRadius: CGFloat = 10
-    var _padding: CGFloat = 12
+    var cornerRadius: CGFloat = 10
+    var padding: CGFloat = 12
     
     // MARK: Subviews
     
@@ -47,7 +46,7 @@ class FLXCategoryContainer: UIView {
         super.layoutSubviews()
         
         /// Layer properties
-        layer.cornerRadius = _cornerRadius
+        layer.cornerRadius = cornerRadius
         layer.rasterize()
 
     }
@@ -68,13 +67,13 @@ class FLXCategoryContainer: UIView {
             let containerWidth: CGFloat = bounds.width
             let index = CGFloat(viewModel.offset)
             
-            let centerXOffset = centerXOffest(forIndex: index, count: count, containerWidth: containerWidth, containerPadding: _padding)
+            let centerXOffset = centerXOffest(forIndex: index, count: count, containerWidth: containerWidth, containerPadding: padding)
             
             /// Layout menu item
             NSLayoutConstraint.activate([
                 
                 /// Menu item
-                menuItem.heightAnchor.constraint(equalTo: heightAnchor, constant: -_padding * 2),
+                menuItem.heightAnchor.constraint(equalTo: heightAnchor, constant: -padding * 2),
                 menuItem.widthAnchor.constraint(equalTo: menuItem.heightAnchor),
                 menuItem.centerXAnchor.constraint(equalTo: leadingAnchor, constant: centerXOffset),
                 menuItem.centerYAnchor.constraint(equalTo: centerYAnchor)
@@ -90,7 +89,7 @@ class FLXCategoryContainer: UIView {
     private func setupView() {
     
         /// View properties
-        backgroundColor = _backgroundColor
+        backgroundColor = .white
     
     }
     
@@ -103,10 +102,8 @@ class FLXCategoryContainer: UIView {
         
         /// Label
         menuItem.label.text = viewModel.category
-        menuItem.label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
-        menuItem.label.textColor = .black
         
-        #warning("Hidden")
+        /// LABELS NOT BEING USED IN THIS DESIGN
         menuItem.label.isHidden = true
         
         /// Image

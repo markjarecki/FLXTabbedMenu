@@ -13,18 +13,12 @@ public protocol FLXTabbedMenuDelegate: class {
     /// Properties
     func categoryViewModels(forTabbedMenu tabbedMenu: FLXTabbedMenu) -> [CategoryViewModel]
     func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, itemContainerViewModelAtIndex index: Int) -> ItemContainerViewModel
-
-    /// Highlighting / unhighlighting items
-    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didHighlightCategoryAtIndex index: Int)
-    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didUnhighlightCategoryAtIndex index: Int)
-    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didHighlightItemAtIndexPath indexPath: IndexPath)
-    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didUnhighlightItemAtIndexPath indexPath: IndexPath)
-
-    /// Selecting / deselecting items
-    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didSelectCategoryAtIndex index: Int)
-    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didDeselectCategoryAtIndex index: Int)
+    
+    /// Selection
     func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didSelectItemAtIndexPath indexPath: IndexPath)
-    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didDeselectitemAtIndexPath indexPath: IndexPath)
+    
+    /// Dismissal
+    func didDismiss(_ tabbedMenu: FLXTabbedMenu)
 
 }
 
@@ -40,16 +34,10 @@ extension FLXTabbedMenuDelegate {
     
     }
     
-    /// Highlighting / unhighlighting items
-    public func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didHighlightCategoryAtIndex index: Int) {}
-    public func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didUnhighlightCategoryAtIndex index: Int) {}
-    public func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didHighlightItemAtIndexPath indexPath: IndexPath) {}
-    public func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didUnhighlightItemAtIndexPath indexPath: IndexPath) {}
-
-    /// Selecting / deselecting items
-    public func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didSelectCategoryAtIndex index: Int) {}
+    /// Selection
     public func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didDeselectCategoryAtIndex index: Int) {}
-    public func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didSelectItemAtIndexPath indexPath: IndexPath)  {}
-    public func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, didDeselectitemAtIndexPath indexPath: IndexPath) {}
+    
+    /// Dismissal
+    public func didDismiss(_ tabbedMenu: FLXTabbedMenu) {}
     
 }

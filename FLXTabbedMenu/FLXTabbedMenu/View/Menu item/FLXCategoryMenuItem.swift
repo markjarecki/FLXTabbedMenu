@@ -8,7 +8,35 @@
 
 import UIKit
 
-class FLXCategoryMenuItem: FLXMenuItemBase {
+public class FLXCategoryMenuItem: FLXMenuItemBase {
+    
+    var isSelected = false {
+        
+        didSet {
+            
+            if isSelected {
+                
+                backgroundColor = .red
+                
+            } else {
+                
+                backgroundColor = .black
+                
+            }
+            
+        }
+        
+    }
+    
+    var isHighlighted = false {
+        
+        didSet {
+            
+             /// Nothing 
+            
+        }
+        
+    }
     
     // MARK: - Initialisers
     
@@ -29,6 +57,10 @@ class FLXCategoryMenuItem: FLXMenuItemBase {
     // MARK: - Private methods
     
     private func setupView() {
+        
+        /// LABELS NOT BEING USED IN THIS DESIGN
+        label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
+        label.textColor = .black
         
         /// Add subviews
         addSubview(label)
@@ -53,7 +85,7 @@ class FLXCategoryMenuItem: FLXMenuItemBase {
     
     // MARK: - Override view lifecycle methods
     
-    override open func layoutSubviews() {
+    override public func layoutSubviews() {
         
         super.layoutSubviews()
         

@@ -19,13 +19,110 @@ open class FLXTabbedMenu: UIView {
     // MARK: Model
     
     private var model: FLXTabbedMenuModel? {
+        
+        /// Exit state actions
+        willSet(newModel) {
+            
+            /// Model exists
+            guard let model = model, let newModel = newModel else { return }
+            
+            /// Deselect and unhighlight if different
+            
+            /// Category deselect
+            if model.selectedCategory != newModel.selectedCategory {
+                
+                let item = categoryMenuItem(at: model.selectedCategory)
+                
+                item.isSelected = false
+                
+            }
+            
+            /// Item deselect
+            if model.selectedItem != newModel.selectedItem, model.selectedItem != nil {
+                
+                let item = itemMenu(at: model.selectedItem!)
+                
+                item?.isSelected = false
+                
+            }
+            
+            /// Category unhighlight
+            if model.highlightedCategory != newModel.highlightedCategory, model.highlightedCategory != nil {
+                
+                let item = categoryMenuItem(at: model.selectedCategory)
+                
+                item.isHighlighted = false
+                
+            }
+            
+            /// Item unhighlight
+            if model.highlightedItem != newModel.highlightedItem, model.highlightedItem != nil {
+                
+                let item = itemMenu(at: model.highlightedItem!)
+                
+                item?.isHighlighted = false
+                
+            }
+            
+        }
 
+        /// Entry state actions
         didSet {
 
-            /// Notify delegate of diff
+            /// Model exists
+            guard let model = model else { return }
             
-            print(model)
-            print("")
+            if oldValue == nil {
+                
+                let item = categoryMenuItem(at: model.selectedCategory)
+                
+                item.isSelected = true
+                
+            } else {
+                
+                /// Select and highlight  if different
+                
+                /// Category select
+                if model.selectedCategory != oldValue!.selectedCategory {
+                    
+                    let item = categoryMenuItem(at: model.selectedCategory)
+                    
+                    item.isSelected = true
+                    
+                    show(itemContainerToCategoryIndex: model.selectedCategory, fromIndex: oldValue!.selectedCategory)
+                    
+                }
+                
+                /// Item select
+                if model.selectedItem != oldValue!.selectedItem, model.selectedItem != nil {
+                    
+                    let item = itemMenu(at: model.selectedItem!)
+                    
+                    item?.isSelected = true
+                    
+                    delegate?.tabbedMenu(self, didSelectItemAtIndexPath: model.selectedItem! )
+                    
+                }
+                
+                /// Category highlight
+                if model.selectedCategory != oldValue!.selectedCategory, model.highlightedCategory != nil {
+                    
+                    let item = categoryMenuItem(at: model.selectedCategory)
+                    
+                    item.isHighlighted = true
+                    
+                }
+                
+                /// Item highlight
+                if model.highlightedItem != oldValue!.highlightedItem, model.highlightedItem != nil {
+                    
+                    let item = itemMenu(at: model.highlightedItem!)
+                    
+                    item?.isHighlighted = true
+                    
+                }
+                
+            }
 
         }
 
@@ -35,6 +132,7 @@ open class FLXTabbedMenu: UIView {
     
     private(set) var categoryContainer: FLXCategoryContainer = FLXCategoryContainer()
     private(set) var itemsContainers: [Int: FLXItemContainer] = [:]
+    private lazy var blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
 
     // MARK: Inbuilt gesture recognizer
     
@@ -89,7 +187,13 @@ open class FLXTabbedMenu: UIView {
                 categoryContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -inset.bottom - bottomPadding),
                 categoryContainer.heightAnchor.constraint(equalToConstant: categorySelectorHeight),
                 categoryContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset.left),
-                categoryContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -inset.right)
+                categoryContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -inset.right),
+                
+                /// Blur view
+                blurView.topAnchor.constraint(equalTo: topAnchor),
+                blurView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                blurView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                blurView.trailingAnchor.constraint(equalTo: trailingAnchor)
                 
             ])
         
@@ -112,11 +216,13 @@ open class FLXTabbedMenu: UIView {
 
         /// Constraints
         translatesAutoresizingMaskIntoConstraints = false
+        blurView.translatesAutoresizingMaskIntoConstraints = false
         categoryContainer.translatesAutoresizingMaskIntoConstraints = false
 
         /// Subviews
+        addSubview(blurView)
         addSubview(categoryContainer)
-        
+
     }
     
     private func setUpGestures() {
@@ -155,6 +261,34 @@ open class FLXTabbedMenu: UIView {
         
     }
     
+    private func show(itemContainerToCategoryIndex index: Int, fromIndex: Int) {
+        
+        guard let delegate = delegate else { return }
+        
+        /// If no  item view for the category, existing as a subview, build it
+        if itemsContainers[index] == nil {
+            
+            let item = makeItemContainer(at: index)
+            
+            let itemViewModel = delegate.tabbedMenu(self, itemContainerViewModelAtIndex: index)
+            
+            item.update(withViewModel: itemViewModel)
+            
+            item.isHidden = true
+            
+        }
+      
+        guard let fromItem = itemsContainers[fromIndex] else { return }
+        guard let toItem = itemsContainers[index] else { return }
+        
+        fromItem.isHidden = true
+        toItem.isHidden = false
+        
+        /// Present menu with an animation
+        #warning("Present menu with animation")
+        
+    }
+    
     // MARK: - Private gesture handler
     
     @objc private func handler(press: FLXPressGestureRecognizer) {
@@ -181,7 +315,7 @@ open class FLXTabbedMenu: UIView {
                     guard let superview = touchView.superview as? FLXItemContainer else { return }
                     guard let index = superview.menuItems.firstIndex(of: itemView) else { return }
                     
-                    model = model?.model(forHighlightedItem: index)
+                    model = model?.model(forHighlightedItem: IndexPath(item: index, section: model!.selectedCategory))
                     
                 }
             
@@ -190,20 +324,21 @@ open class FLXTabbedMenu: UIView {
                 /// Check if newLocation is over any of the menu options
                 guard let touchView: UIView = press.view!.hitTest(touchPoint, with: nil) else { return }
                 
-                if let categoryView = touchView as? FLXCategoryMenuItem  {
+                if let categoryView = touchView as? FLXCategoryMenuItem {
                     
                     guard let superview = touchView.superview as? FLXCategoryContainer else { return }
                     guard let index = superview.menuItems.firstIndex(of: categoryView) else { return }
                     
-                    model = model?.model(forHighlightedCategory: index)
-                    
+//                    model = model?.model(forHighlightedCategory: index)
+                    model = model?.model(forSelectedCategory: index)
+
                     
                 } else if let itemView = touchView as? FLXMenuItem {
                     
                     guard let superview = touchView.superview as? FLXItemContainer else { return }
                     guard let index = superview.menuItems.firstIndex(of: itemView) else { return }
                     
-                    model = model?.model(forHighlightedItem: index)
+                    model = model?.model(forHighlightedItem: IndexPath(item: index, section: model!.selectedCategory))
                     
                 } else {
                     
@@ -219,18 +354,28 @@ open class FLXTabbedMenu: UIView {
                 
                 guard let touchView: UIView = press.view!.hitTest(touchPoint, with: nil) else { return }
                 
-                if touchView is FLXCategoryMenuItem {
-                    
-                    print("ENDED CATEGORY")
+                if let categoryView = touchView as? FLXCategoryMenuItem {
                     
                     /// Select new  & unhighlight
+                    guard let superview = touchView.superview as? FLXCategoryContainer else { return }
+                    guard let index = superview.menuItems.firstIndex(of: categoryView) else { return }
+                    
+                    model = model?.model(forSelectedCategory: index)
                     
                     
-                } else if touchView is FLXMenuItem {
-                    
-                    print("ENDED SUB CATEGORY")
+                } else if let itemView = touchView as? FLXMenuItem {
                     
                     /// Select new & unhighlight
+                    guard let superview = touchView.superview as? FLXItemContainer else { return }
+                    guard let index = superview.menuItems.firstIndex(of: itemView) else { return }
+                    
+                    model = model?.model(forSelectedItem: IndexPath(item: index, section: model!.selectedCategory))
+                    
+                } else {
+                    
+                    if touchView is FLXCategoryContainer { return }
+            
+                    dismiss()
                     
                 }
             
@@ -246,8 +391,8 @@ open class FLXTabbedMenu: UIView {
 
 extension FLXTabbedMenu {
     
-    /// Show / hide
-    public func show(withSelectedCategoryIndex index: Int) {
+    /// Present / dismiss
+    public func present(withSelectedCategoryIndex index: Int, andItemIndex itemIndex: Int?) {
         
         guard let delegate = delegate else { return }
         
@@ -272,72 +417,48 @@ extension FLXTabbedMenu {
         }
         
         /// New model with new state
-        model = FLXTabbedMenuModel(selectedCategory: index, selectedItem: nil, highlightedCategory: nil, highlightedItem: nil)
         
-        /// Show the view
+        if itemIndex != nil {
+            
+             model = FLXTabbedMenuModel(selectedCategory: index, selectedItem: nil, highlightedCategory: nil, highlightedItem: IndexPath(item: itemIndex!, section: index))
+            
+        } else {
+            
+             model = FLXTabbedMenuModel(selectedCategory: index, selectedItem: nil, highlightedCategory: nil, highlightedItem: nil)
+            
+        }
+        
+        /// Unhide the view
         isHidden = false
         
         /// Present menu with an animation
-        
+        #warning("Present menu with animation")
     
     }
     
-    public func hide() {
+    public func dismiss() {
     
         /// Dismiss the menu with an animation
         
+        /// Reset highlighted states
+        model = model!.model(forHighlightedCategory: nil, item: nil)
         
         isHidden = true
+        
+        delegate?.didDismiss(self)
     
     }
     
     /// Getting menu item views
-    public func categoryMenuItem(at index: Int) -> FLXMenuItemBase? {
-    
-        return nil
-    
-    }
-    
-    public func itemMenuItem(at indexPath: IndexPath) -> FLXMenuItemBase? {
-    
-        return nil
-    
-    }
-    
-    
-    /// Highlighting / unhighlighting
-    /**
-     
-        Only need to highlight when engaging from external gesture recognizer.
- 
-    */
-    public func highlightCategory(at index: Int) {
-    
+    public func categoryMenuItem(at index: Int) -> FLXCategoryMenuItem {
         
+        return categoryContainer.menuItems[index]
     
     }
     
-    public func highlightItem(at indexPath: IndexPath) {
-    
+    public func itemMenu(at indexPath: IndexPath) -> FLXMenuItem? {
         
-    
-    }
-    
-    /// Selecting / deselecting
-    /**
-     
-        Only need to select when engaging from external gesture recognizer.
- 
-    */
-    public func selectCategory(at index: Int) {
-    
-        
-    
-    }
-    
-    public func selectItem(at indexPath: IndexPath) {
-    
-        
+        return itemsContainers[indexPath.section]?.menuItems[indexPath.item]
     
     }
 

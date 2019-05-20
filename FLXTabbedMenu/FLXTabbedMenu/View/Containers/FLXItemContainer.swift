@@ -16,8 +16,7 @@ class FLXItemContainer: UIView {
     
     // MARK:  Overridable default properties
     
-    var _backgroundColor: UIColor = .clear
-    var _padding: CGFloat = 12
+    var padding: CGFloat = 12
     
     // MARK: Subviews
     
@@ -54,7 +53,7 @@ class FLXItemContainer: UIView {
         /// Layout top guide item
         NSLayoutConstraint.activate([
             
-            topGuide.topAnchor.constraint(equalTo: bottomAnchor, constant: -(count * itemHeight) - _padding)
+            topGuide.topAnchor.constraint(equalTo: bottomAnchor, constant: -(count * itemHeight) - padding)
 //            ,
 //            topGuide.bottomAnchor.constraint(equalTo: bottomAnchor),
 //            topGuide.widthAnchor.constraint(equalTo: widthAnchor),
@@ -97,8 +96,8 @@ class FLXItemContainer: UIView {
         
             label.heightAnchor.constraint(equalToConstant: label.intrinsicContentSize.height),
             label.widthAnchor.constraint(equalTo: widthAnchor),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: _padding),
-            label.bottomAnchor.constraint(equalTo: menuItems.first != nil ? menuItems.first!.topAnchor : self.bottomAnchor, constant: -_padding)
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            label.bottomAnchor.constraint(equalTo: menuItems.first != nil ? menuItems.first!.topAnchor : self.bottomAnchor, constant: -padding)
             
         ])
         
@@ -110,7 +109,7 @@ class FLXItemContainer: UIView {
         
         /// View properties
         isOpaque = true
-        backgroundColor = _backgroundColor
+        backgroundColor = .clear
         
         /// Constraints
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -131,13 +130,8 @@ class FLXItemContainer: UIView {
         
         let menuItem = FLXMenuItem()
         
-        /// Menu item
-        menuItem.backgroundColor = .white
-        
         /// Label
         menuItem.label.text = viewModel.category
-        menuItem.label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        menuItem.label.textColor = .black
         
         /// Image
         menuItem.image.image = viewModel.image

@@ -8,14 +8,45 @@
 
 import UIKit
 
-class FLXMenuItem: FLXMenuItemBase {
+public class FLXMenuItem: FLXMenuItemBase {
     
     // MARK: - Properties
     
+    var isSelected = false {
+        
+        didSet {
+            
+            /// Nothing 
+            
+        }
+        
+    }
+    
+    var isHighlighted = false {
+        
+        didSet {
+            
+            if isHighlighted {
+                
+                backgroundColor = .red
+                
+            } else {
+                
+                backgroundColor = .white
+                
+            }
+            
+        }
+        
+    }
+    
     var cornerRadius: CGFloat = 10
     var corner: Corner = .roundBoth
+    
+    /// Layer
     let topBorder = CALayer()
     
+    /// Enumeration
     enum Corner {
         
         case roundTop
@@ -57,7 +88,7 @@ class FLXMenuItem: FLXMenuItemBase {
     
     // MARK: - Override view lifecycle methods
     
-    override open func layoutSubviews() {
+    override public func layoutSubviews() {
         
         super.layoutSubviews()
         
@@ -112,11 +143,16 @@ class FLXMenuItem: FLXMenuItemBase {
     
     private func setupView() {
         
+        /// Self
+        backgroundColor = .white
+        
         /// Layers
         layer.addSublayer(topBorder)
         
         /// Subviews
         image.backgroundColor = .black
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .black
         
         /// Add subviews
         addSubview(label)

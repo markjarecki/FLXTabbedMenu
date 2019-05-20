@@ -16,10 +16,5 @@ public class FLXMenuItemBase: UIView {
     
     public let label = UILabel()
     public let image = UIImageView()
-    
-    // MARK: Mutable
-    
-    public var highlighted: Bool = false
-    public var selected: Bool = false
-    
+        
 }

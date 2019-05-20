@@ -11,11 +11,11 @@ import Foundation
 struct FLXTabbedMenuModel {
 
     let selectedCategory: Int
-    let selectedItem: Int?
+    let selectedItem: IndexPath?
     let highlightedCategory: Int?
-    let highlightedItem: Int?
+    let highlightedItem: IndexPath?
     
-    init(selectedCategory: Int, selectedItem: Int?, highlightedCategory: Int?, highlightedItem: Int?) {
+    init(selectedCategory: Int, selectedItem: IndexPath?, highlightedCategory: Int?, highlightedItem: IndexPath?) {
     
         self.selectedCategory = selectedCategory
         self.selectedItem = selectedItem
@@ -36,7 +36,7 @@ extension FLXTabbedMenuModel {
         
     }
     
-    func model(forSelectedItem selectedItem: Int?) -> FLXTabbedMenuModel {
+    func model(forSelectedItem selectedItem: IndexPath?) -> FLXTabbedMenuModel {
         
         return FLXTabbedMenuModel(selectedCategory: self.selectedCategory, selectedItem: selectedItem, highlightedCategory: self.highlightedCategory, highlightedItem: self.highlightedItem)
         
@@ -48,13 +48,13 @@ extension FLXTabbedMenuModel {
         
     }
     
-    func model(forHighlightedItem highlightedItem: Int?) -> FLXTabbedMenuModel {
+    func model(forHighlightedItem highlightedItem: IndexPath?) -> FLXTabbedMenuModel {
         
         return FLXTabbedMenuModel(selectedCategory: self.selectedCategory, selectedItem: self.selectedItem, highlightedCategory: self.highlightedCategory, highlightedItem: highlightedItem)
         
     }
     
-    func model(forHighlightedCategory category: Int?, item: Int?) -> FLXTabbedMenuModel {
+    func model(forHighlightedCategory category: Int?, item: IndexPath?) -> FLXTabbedMenuModel {
         
         return FLXTabbedMenuModel(selectedCategory: self.selectedCategory, selectedItem: self.selectedItem, highlightedCategory: category, highlightedItem: item)
         
