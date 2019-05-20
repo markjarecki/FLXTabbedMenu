@@ -23,6 +23,9 @@ open class FLXTabbedMenu: UIView {
         didSet {
 
             /// Notify delegate of diff
+            
+            print(model)
+            print("")
 
         }
 
@@ -31,16 +34,12 @@ open class FLXTabbedMenu: UIView {
     // MARK: Subviews
     
     private(set) var categoryContainer: FLXCategoryContainer = FLXCategoryContainer()
-    private(set) var subCategoryContainers: [Int: FLXSubCategoryContainer] = [:]
+    private(set) var itemsContainers: [Int: FLXItemContainer] = [:]
 
     // MARK: Inbuilt gesture recognizer
     
-    lazy private var pressGestureRecognizer: FLXPressGestureRecognizer = { [unowned self] in
-        
-        return FLXPressGestureRecognizer(target: self, action: #selector(self.handler(press:)))
-    
-    }()
-    
+    private let pressGestureRecognizer = FLXPressGestureRecognizer()
+
     // MARK: Overridable default properties
     
     public var useBuiltinGestures: Bool = true
@@ -81,16 +80,16 @@ open class FLXTabbedMenu: UIView {
             NSLayoutConstraint.activate([
         
                 /// Self
-                bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -inset.bottom - bottomPadding),
-                heightAnchor.constraint(equalTo: categoryContainer.heightAnchor),
-                leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: inset.left),
-                trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor, constant: -inset.right),
+                bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor),
+                topAnchor.constraint(equalTo: superview.topAnchor),
+                leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+                trailingAnchor.constraint(equalTo: superview.trailingAnchor),
                 
                 /// Category selectpr
-                categoryContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
+                categoryContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -inset.bottom - bottomPadding),
                 categoryContainer.heightAnchor.constraint(equalToConstant: categorySelectorHeight),
-                categoryContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-                categoryContainer.trailingAnchor.constraint(equalTo: trailingAnchor)
+                categoryContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset.left),
+                categoryContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -inset.right)
                 
             ])
         
@@ -108,7 +107,7 @@ open class FLXTabbedMenu: UIView {
         isOpaque = false
         backgroundColor = .clear
         
-        /// Initialises hidden
+        /// Initialises as hidden
         isHidden = true
 
         /// Constraints
@@ -125,21 +124,34 @@ open class FLXTabbedMenu: UIView {
         /// Add built-in press gesture recognizer if override flag has not been set
         if useBuiltinGestures {
         
+            pressGestureRecognizer.addTarget(self, action: #selector(handler(press:)))
             addGestureRecognizer(pressGestureRecognizer)
             
         }
         
     }
     
-    private func makeSubCategory(for index: Int) -> FLXSubCategoryContainer {
+    private func makeItemContainer(at index: Int) -> FLXItemContainer {
         
-        let subCategory = FLXSubCategoryContainer()
+        let itemContainer = FLXItemContainer()
         
+        itemContainer.translatesAutoresizingMaskIntoConstraints = false
         
+        itemsContainers[index] = itemContainer
         
-        addSubview(subCategory)
+        addSubview(itemContainer)
         
-        return subCategory
+        NSLayoutConstraint.activate([
+            
+            /// Item container
+            itemContainer.topAnchor.constraint(equalTo: topAnchor),
+            itemContainer.bottomAnchor.constraint(equalTo: categoryContainer.topAnchor),
+            itemContainer.leadingAnchor.constraint(equalTo: categoryContainer.leadingAnchor),
+            itemContainer.trailingAnchor.constraint(equalTo: categoryContainer.trailingAnchor)
+            
+        ])
+        
+        return itemContainer
         
     }
     
@@ -147,8 +159,85 @@ open class FLXTabbedMenu: UIView {
     
     @objc private func handler(press: FLXPressGestureRecognizer) {
     
-        print("PRESSED")
-    
+        let touchPoint = press.location(in: press.view)
+        
+        switch press.state {
+            
+            case .began:
+            
+                /// Check if newLocation is over any of the menu options
+                guard let touchView: UIView = press.view!.hitTest(touchPoint, with: nil) else { return }
+            
+                if let categoryView = touchView as? FLXCategoryMenuItem  {
+                    
+                    guard let superview = touchView.superview as? FLXCategoryContainer else { return }
+                    guard let index = superview.menuItems.firstIndex(of: categoryView) else { return }
+                    
+                    model = model?.model(forHighlightedCategory: index)
+                    
+                    
+                } else if let itemView = touchView as? FLXMenuItem {
+                    
+                    guard let superview = touchView.superview as? FLXItemContainer else { return }
+                    guard let index = superview.menuItems.firstIndex(of: itemView) else { return }
+                    
+                    model = model?.model(forHighlightedItem: index)
+                    
+                }
+            
+            case .changed:
+                
+                /// Check if newLocation is over any of the menu options
+                guard let touchView: UIView = press.view!.hitTest(touchPoint, with: nil) else { return }
+                
+                if let categoryView = touchView as? FLXCategoryMenuItem  {
+                    
+                    guard let superview = touchView.superview as? FLXCategoryContainer else { return }
+                    guard let index = superview.menuItems.firstIndex(of: categoryView) else { return }
+                    
+                    model = model?.model(forHighlightedCategory: index)
+                    
+                    
+                } else if let itemView = touchView as? FLXMenuItem {
+                    
+                    guard let superview = touchView.superview as? FLXItemContainer else { return }
+                    guard let index = superview.menuItems.firstIndex(of: itemView) else { return }
+                    
+                    model = model?.model(forHighlightedItem: index)
+                    
+                } else {
+                    
+                    model = model?.model(forHighlightedCategory: nil, item: nil)
+                    
+                }
+            
+            case .cancelled:
+                
+                model = model?.model(forHighlightedCategory: nil, item: nil)
+            
+            case .ended:
+                
+                guard let touchView: UIView = press.view!.hitTest(touchPoint, with: nil) else { return }
+                
+                if touchView is FLXCategoryMenuItem {
+                    
+                    print("ENDED CATEGORY")
+                    
+                    /// Select new  & unhighlight
+                    
+                    
+                } else if touchView is FLXMenuItem {
+                    
+                    print("ENDED SUB CATEGORY")
+                    
+                    /// Select new & unhighlight
+                    
+                }
+            
+            default: print("Unhandled state")
+            
+        }
+        
     }
     
 }
@@ -171,19 +260,19 @@ extension FLXTabbedMenu {
 
         }
         
-        /// If no  subcategory view for the category, existing as a subview, build it
-        if subCategoryContainers[index] == nil {
+        /// If no  item view for the category, existing as a subview, build it
+        if itemsContainers[index] == nil {
             
-            let subCategory = makeSubCategory(for: index)
+            let item = makeItemContainer(at: index)
 
-            let subCategoryViewModel = delegate.tabbedMenu(self, subCategoryViewModelAtIndex: index)
+            let itemViewModel = delegate.tabbedMenu(self, itemContainerViewModelAtIndex: index)
             
-            subCategory.update(withViewModel: subCategoryViewModel)
+            item.update(withViewModel: itemViewModel)
             
         }
         
         /// New model with new state
-        model = FLXTabbedMenuModel(selectedCategory: index, selectedSubCategory: nil, highlightedCategory: nil, highlightedSubCategory: nil)
+        model = FLXTabbedMenuModel(selectedCategory: index, selectedItem: nil, highlightedCategory: nil, highlightedItem: nil)
         
         /// Show the view
         isHidden = false
@@ -196,17 +285,20 @@ extension FLXTabbedMenu {
     public func hide() {
     
         /// Dismiss the menu with an animation
+        
+        
+        isHidden = true
     
     }
     
     /// Getting menu item views
-    public func categoryMenuItem(at index: Int) -> FLXTabbedMenuItem? {
+    public func categoryMenuItem(at index: Int) -> FLXMenuItemBase? {
     
         return nil
     
     }
     
-    public func subCategoryMenuItem(at indexPath: IndexPath) -> FLXTabbedMenuItem? {
+    public func itemMenuItem(at indexPath: IndexPath) -> FLXMenuItemBase? {
     
         return nil
     
@@ -225,7 +317,7 @@ extension FLXTabbedMenu {
     
     }
     
-    public func highlightSubCategory(at indexPath: IndexPath) {
+    public func highlightItem(at indexPath: IndexPath) {
     
         
     
@@ -243,7 +335,7 @@ extension FLXTabbedMenu {
     
     }
     
-    public func selectSubCategory(at indexPath: IndexPath) {
+    public func selectItem(at indexPath: IndexPath) {
     
         
     

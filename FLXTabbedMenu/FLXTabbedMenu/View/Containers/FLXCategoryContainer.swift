@@ -19,6 +19,10 @@ class FLXCategoryContainer: UIView {
     var _backgroundColor: UIColor = .white
     var _cornerRadius: CGFloat = 10
     var _padding: CGFloat = 12
+    
+    // MARK: Subviews
+    
+    var menuItems: [FLXCategoryMenuItem] = []
 
     // MARK: - Initialisers
     
@@ -57,6 +61,7 @@ class FLXCategoryContainer: UIView {
         for viewModel in viewModels.enumerated() {
             
             let menuItem = makeMenuItem(withViewModel: viewModel.element)
+            menuItems.append(menuItem)
             
             addSubview(menuItem)
             
@@ -65,11 +70,11 @@ class FLXCategoryContainer: UIView {
             
             let centerXOffset = centerXOffest(forIndex: index, count: count, containerWidth: containerWidth, containerPadding: _padding)
             
-            /// Update the constraints
+            /// Layout menu item
             NSLayoutConstraint.activate([
                 
                 /// Menu item
-                menuItem.heightAnchor.constraint(equalTo: heightAnchor, constant: -(_padding*2)),
+                menuItem.heightAnchor.constraint(equalTo: heightAnchor, constant: -_padding * 2),
                 menuItem.widthAnchor.constraint(equalTo: menuItem.heightAnchor),
                 menuItem.centerXAnchor.constraint(equalTo: leadingAnchor, constant: centerXOffset),
                 menuItem.centerYAnchor.constraint(equalTo: centerYAnchor)
@@ -94,7 +99,7 @@ class FLXCategoryContainer: UIView {
         let menuItem = FLXCategoryMenuItem()
         
         /// Menu item
-        menuItem.backgroundColor = .brown
+        menuItem.backgroundColor = .black
         
         /// Label
         menuItem.label.text = viewModel.category
@@ -117,10 +122,9 @@ class FLXCategoryContainer: UIView {
     private func centerXOffest(forIndex index: CGFloat, count: CGFloat, containerWidth: CGFloat, containerPadding: CGFloat) -> CGFloat {
         
         let widthMinusPadding = containerWidth - (containerPadding * 2)
-        let sections = count
-        let sectionWidth = widthMinusPadding / sections
+        let sectionWidth = widthMinusPadding / count
         let initialValue = (sectionWidth / 2) + containerPadding
-        let offsetStep = (sectionWidth) * index
+        let offsetStep = sectionWidth * index
 
         return floor(initialValue + offsetStep)
         

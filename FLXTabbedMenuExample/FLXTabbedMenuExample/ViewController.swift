@@ -24,17 +24,17 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         /// View properties
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor.init(white: 94/255, alpha: 1)
 
         /// Add the menu
         menu.delegate = self
         view.addSubview(menu)
         
         /// Simulate event after rendering RVC
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [weak self] in
             
             /// Show the menu
-            self.menu.show(withSelectedCategoryIndex: 0)
+            self?.menu.show(withSelectedCategoryIndex: 0)
             
         }
 
@@ -52,12 +52,12 @@ extension MainViewController: FLXTabbedMenuDelegate {
         
     }
     
-    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, subCategoryViewModelAtIndex index: Int) -> SubCategoryViewModel {
+    func tabbedMenu(_ tabbedMenu: FLXTabbedMenu, itemContainerViewModelAtIndex index: Int) -> ItemContainerViewModel {
         
         let category = model()[index]
-        let subcategories = category.subCategories.map{ (category: $0.text, image: $0.image) }
+        let items = category.items.map{ (category: $0.text, image: $0.image) }
         
-        return (category: category.text, subCategories: subcategories)
+        return (category: category.text, items: items)
         
     }
     

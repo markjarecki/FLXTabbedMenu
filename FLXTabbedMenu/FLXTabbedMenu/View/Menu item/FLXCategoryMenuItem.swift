@@ -8,7 +8,48 @@
 
 import UIKit
 
-class FLXCategoryMenuItem: FLXTabbedMenuItem {
+class FLXCategoryMenuItem: FLXMenuItemBase {
+    
+    // MARK: - Initialisers
+    
+    override init(frame: CGRect) {
+        
+        super.init(frame: frame)
+        
+        setupView()
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+        
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupView() {
+        
+        /// Add subviews
+        addSubview(label)
+        addSubview(image)
+        
+        /// Constraints
+        label.translatesAutoresizingMaskIntoConstraints = false
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        /// Update the constraints
+        NSLayoutConstraint.activate([
+            
+            /// Image
+            image.heightAnchor.constraint(equalTo: heightAnchor),
+            image.widthAnchor.constraint(equalTo: heightAnchor),
+            image.centerXAnchor.constraint(equalTo: centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: centerYAnchor)
+            
+        ])
+        
+    }
     
     // MARK: - Override view lifecycle methods
     

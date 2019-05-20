@@ -11,19 +11,55 @@ import Foundation
 struct FLXTabbedMenuModel {
 
     let selectedCategory: Int
-    let selectedSubCategory: IndexPath?
+    let selectedItem: Int?
     let highlightedCategory: Int?
-    let highlightedSubCategory: IndexPath?
+    let highlightedItem: Int?
     
-    init(selectedCategory: Int, selectedSubCategory: IndexPath?, highlightedCategory: Int?, highlightedSubCategory: IndexPath?) {
+    init(selectedCategory: Int, selectedItem: Int?, highlightedCategory: Int?, highlightedItem: Int?) {
     
         self.selectedCategory = selectedCategory
-        self.selectedSubCategory = selectedSubCategory
+        self.selectedItem = selectedItem
         self.highlightedCategory = highlightedCategory
-        self.highlightedSubCategory = highlightedSubCategory
+        self.highlightedItem = highlightedItem
 
     }
 
+}
+
+// MARK: - Alternate initialisers
+
+extension FLXTabbedMenuModel {
+    
+    func model(forSelectedCategory selectedCategory: Int) -> FLXTabbedMenuModel {
+        
+        return FLXTabbedMenuModel(selectedCategory: selectedCategory, selectedItem: self.selectedItem, highlightedCategory: self.highlightedCategory, highlightedItem: self.highlightedItem)
+        
+    }
+    
+    func model(forSelectedItem selectedItem: Int?) -> FLXTabbedMenuModel {
+        
+        return FLXTabbedMenuModel(selectedCategory: self.selectedCategory, selectedItem: selectedItem, highlightedCategory: self.highlightedCategory, highlightedItem: self.highlightedItem)
+        
+    }
+    
+    func model(forHighlightedCategory highlightedCategory: Int?) -> FLXTabbedMenuModel {
+        
+        return FLXTabbedMenuModel(selectedCategory: self.selectedCategory, selectedItem: self.selectedItem, highlightedCategory: highlightedCategory, highlightedItem: self.highlightedItem)
+        
+    }
+    
+    func model(forHighlightedItem highlightedItem: Int?) -> FLXTabbedMenuModel {
+        
+        return FLXTabbedMenuModel(selectedCategory: self.selectedCategory, selectedItem: self.selectedItem, highlightedCategory: self.highlightedCategory, highlightedItem: highlightedItem)
+        
+    }
+    
+    func model(forHighlightedCategory category: Int?, item: Int?) -> FLXTabbedMenuModel {
+        
+        return FLXTabbedMenuModel(selectedCategory: self.selectedCategory, selectedItem: self.selectedItem, highlightedCategory: category, highlightedItem: item)
+        
+    }
+    
 }
 
 // MARK: - Equatable conformance
@@ -34,9 +70,9 @@ extension FLXTabbedMenuModel: Equatable {
         
         return
                 lhs.selectedCategory == rhs.selectedCategory &&
-                lhs.selectedSubCategory == rhs.selectedSubCategory &&
+                lhs.selectedItem == rhs.selectedItem &&
                 lhs.highlightedCategory == rhs.highlightedCategory &&
-                lhs.highlightedSubCategory == rhs.highlightedSubCategory
+                lhs.highlightedItem == rhs.highlightedItem
         
     }
     

@@ -12,11 +12,11 @@ struct MenuCategory {
     
     let image: UIImage?
     let text: String
-    let subCategories: [MenuSubCategory]
+    let items: [MenuItem]
     
 }
 
-struct MenuSubCategory {
+struct MenuItem {
     
     let image: UIImage?
     let text: String
@@ -28,54 +28,54 @@ func model() -> [MenuCategory] {
     let accountsCategory = MenuCategory(
                                 image: nil,
                                 text: "Accounts",
-                                subCategories: [
-                                     MenuSubCategory(image: nil, text: "Sub category 1"),
-                                     MenuSubCategory(image: nil, text: "Sub category 2"),
-                                     MenuSubCategory(image: nil, text: "Sub category 3"),
-                                     MenuSubCategory(image: nil, text: "Sub category 4")
+                                items: [
+                                     MenuItem(image: nil, text: "Item 1"),
+                                     MenuItem(image: nil, text: "Item 2"),
+                                     MenuItem(image: nil, text: "Item 3"),
+                                     MenuItem(image: nil, text: "Item 4")
                             ])
     
     let investmentsCategory = MenuCategory(
                                 image: nil,
                                 text: "Investments",
-                                subCategories: [
-                                     MenuSubCategory(image: nil, text: "Sub category 1"),
-                                     MenuSubCategory(image: nil, text: "Sub category 2"),
-                                     MenuSubCategory(image: nil, text: "Sub category 3"),
-                                     MenuSubCategory(image: nil, text: "Sub category 4"),
-                                     MenuSubCategory(image: nil, text: "Sub category 5")
+                                items: [
+                                     MenuItem(image: nil, text: "Item 1"),
+                                     MenuItem(image: nil, text: "Item 2"),
+                                     MenuItem(image: nil, text: "Item 3"),
+                                     MenuItem(image: nil, text: "Item 4"),
+                                     MenuItem(image: nil, text: "Item 5")
                             ])
     
     let transfersCategory = MenuCategory(
                                 image: nil,
                                 text: "Transfers",
-                                subCategories: [
-                                     MenuSubCategory(image: nil, text: "Sub category 1")
+                                items: [
+                                     MenuItem(image: nil, text: "Item 1")
                             ])
     
     let communicationsCategory = MenuCategory(
                                 image: nil,
                                 text: "Communications",
-                                subCategories: [
-                                     MenuSubCategory(image: nil, text: "Sub category 1"),
-                                     MenuSubCategory(image: nil, text: "Sub category 2"),
-                                     MenuSubCategory(image: nil, text: "Sub category 3"),
-                                     MenuSubCategory(image: nil, text: "Sub category 4"),
-                                     MenuSubCategory(image: nil, text: "Sub category 5"),
-                                     MenuSubCategory(image: nil, text: "Sub category 6")
+                                items: [
+                                     MenuItem(image: nil, text: "Item 1"),
+                                     MenuItem(image: nil, text: "Item 2"),
+                                     MenuItem(image: nil, text: "Item 3"),
+                                     MenuItem(image: nil, text: "Item 4"),
+                                     MenuItem(image: nil, text: "Item 5"),
+                                     MenuItem(image: nil, text: "Item 6")
                             ])
     
     
     let settingsCategory = MenuCategory(
                                 image: nil,
                                 text: "Settings",
-                                subCategories: [
-                                     MenuSubCategory(image: nil, text: "Sub category 1"),
-                                     MenuSubCategory(image: nil, text: "Sub category 2"),
-                                     MenuSubCategory(image: nil, text: "Sub category 3"),
-                                     MenuSubCategory(image: nil, text: "Sub category 4"),
-                                     MenuSubCategory(image: nil, text: "Sub category 5"),
-                                     MenuSubCategory(image: nil, text: "Sub category 6")
+                                items: [
+                                     MenuItem(image: nil, text: "Item 1"),
+                                     MenuItem(image: nil, text: "Item 2"),
+                                     MenuItem(image: nil, text: "Item 3"),
+                                     MenuItem(image: nil, text: "Item 4"),
+                                     MenuItem(image: nil, text: "Item 5"),
+                                     MenuItem(image: nil, text: "Item 6")
                             ])
 
     return [accountsCategory, investmentsCategory, transfersCategory, communicationsCategory, settingsCategory]

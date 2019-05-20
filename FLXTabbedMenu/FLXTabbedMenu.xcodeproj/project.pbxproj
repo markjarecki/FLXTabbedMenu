@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA3A2D79229032A900E71B7E /* FLXTabbedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D78229032A900E71B7E /* FLXTabbedMenuItem.swift */; };
+		DA3A2D79229032A900E71B7E /* FLXMenuItemBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D78229032A900E71B7E /* FLXMenuItemBase.swift */; };
 		DA3A2D80229055D700E71B7E /* FLXTabbedMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D7F229055D700E71B7E /* FLXTabbedMenuModel.swift */; };
 		DA3A2D8322906C9E00E71B7E /* FLXCategoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D8222906C9E00E71B7E /* FLXCategoryContainer.swift */; };
-		DA3A2D88229096C200E71B7E /* FLXSubCategoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D87229096C200E71B7E /* FLXSubCategoryContainer.swift */; };
+		DA3A2D88229096C200E71B7E /* FLXItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A2D87229096C200E71B7E /* FLXItemContainer.swift */; };
 		DA49EDA8228EB0F70069E6AB /* FLXTabbedMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA49ED9E228EB0F70069E6AB /* FLXTabbedMenu.framework */; };
 		DA49EDAD228EB0F70069E6AB /* FLXTabbedMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDAC228EB0F70069E6AB /* FLXTabbedMenuTests.swift */; };
 		DA49EDAF228EB0F70069E6AB /* FLXTabbedMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,7 +18,7 @@
 		DA49EDC3228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */; };
 		DAB50E8C229165E900F952F2 /* FLXCategoryMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB50E8B229165E900F952F2 /* FLXCategoryMenuItem.swift */; };
 		DAB50E8E229166E100F952F2 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB50E8D229166E100F952F2 /* CALayer+Extensions.swift */; };
-		DAB50E922291A06700F952F2 /* FLXSubCategoryMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB50E912291A06700F952F2 /* FLXSubCategoryMenuItem.swift */; };
+		DAB50E922291A06700F952F2 /* FLXMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB50E912291A06700F952F2 /* FLXMenuItem.swift */; };
 		DAC0143C228EE3E100502DA6 /* FLXPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0143B228EE3E100502DA6 /* FLXPressGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,10 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DA3A2D78229032A900E71B7E /* FLXTabbedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuItem.swift; sourceTree = "<group>"; };
+		DA3A2D78229032A900E71B7E /* FLXMenuItemBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXMenuItemBase.swift; sourceTree = "<group>"; };
 		DA3A2D7F229055D700E71B7E /* FLXTabbedMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuModel.swift; sourceTree = "<group>"; };
 		DA3A2D8222906C9E00E71B7E /* FLXCategoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXCategoryContainer.swift; sourceTree = "<group>"; };
-		DA3A2D87229096C200E71B7E /* FLXSubCategoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXSubCategoryContainer.swift; sourceTree = "<group>"; };
+		DA3A2D87229096C200E71B7E /* FLXItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXItemContainer.swift; sourceTree = "<group>"; };
 		DA49ED9E228EB0F70069E6AB /* FLXTabbedMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLXTabbedMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49EDA1228EB0F70069E6AB /* FLXTabbedMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLXTabbedMenu.h; sourceTree = "<group>"; };
 		DA49EDA2228EB0F70069E6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		DA49EDC2228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXTabbedMenuDelegate.swift; sourceTree = "<group>"; };
 		DAB50E8B229165E900F952F2 /* FLXCategoryMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXCategoryMenuItem.swift; sourceTree = "<group>"; };
 		DAB50E8D229166E100F952F2 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
-		DAB50E912291A06700F952F2 /* FLXSubCategoryMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXSubCategoryMenuItem.swift; sourceTree = "<group>"; };
+		DAB50E912291A06700F952F2 /* FLXMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXMenuItem.swift; sourceTree = "<group>"; };
 		DAC0143B228EE3E100502DA6 /* FLXPressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLXPressGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,9 +92,9 @@
 		DA3A2D7C2290336900E71B7E /* Menu item */ = {
 			isa = PBXGroup;
 			children = (
-				DA3A2D78229032A900E71B7E /* FLXTabbedMenuItem.swift */,
+				DA3A2D78229032A900E71B7E /* FLXMenuItemBase.swift */,
 				DAB50E8B229165E900F952F2 /* FLXCategoryMenuItem.swift */,
-				DAB50E912291A06700F952F2 /* FLXSubCategoryMenuItem.swift */,
+				DAB50E912291A06700F952F2 /* FLXMenuItem.swift */,
 			);
 			path = "Menu item";
 			sourceTree = "<group>";
@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3A2D8222906C9E00E71B7E /* FLXCategoryContainer.swift */,
-				DA3A2D87229096C200E71B7E /* FLXSubCategoryContainer.swift */,
+				DA3A2D87229096C200E71B7E /* FLXItemContainer.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -282,10 +282,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB50E8C229165E900F952F2 /* FLXCategoryMenuItem.swift in Sources */,
-				DA3A2D88229096C200E71B7E /* FLXSubCategoryContainer.swift in Sources */,
+				DA3A2D88229096C200E71B7E /* FLXItemContainer.swift in Sources */,
 				DAC0143C228EE3E100502DA6 /* FLXPressGestureRecognizer.swift in Sources */,
-				DAB50E922291A06700F952F2 /* FLXSubCategoryMenuItem.swift in Sources */,
-				DA3A2D79229032A900E71B7E /* FLXTabbedMenuItem.swift in Sources */,
+				DAB50E922291A06700F952F2 /* FLXMenuItem.swift in Sources */,
+				DA3A2D79229032A900E71B7E /* FLXMenuItemBase.swift in Sources */,
 				DAB50E8E229166E100F952F2 /* CALayer+Extensions.swift in Sources */,
 				DA49EDC3228EBEA00069E6AB /* FLXTabbedMenuDelegate.swift in Sources */,
 				DA3A2D80229055D700E71B7E /* FLXTabbedMenuModel.swift in Sources */,
