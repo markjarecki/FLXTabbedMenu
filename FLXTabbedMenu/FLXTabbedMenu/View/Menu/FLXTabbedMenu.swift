@@ -78,6 +78,8 @@ open class FLXTabbedMenu: UIView {
                 
                 item.isSelected = true
                 
+                feedbackGenerator.selectionChanged()
+                
             } else {
                 
                 /// Select and highlight  if different
@@ -91,6 +93,8 @@ open class FLXTabbedMenu: UIView {
                     
                     show(itemContainerToCategoryIndex: model.selectedCategory, fromIndex: oldValue!.selectedCategory)
                     
+                    feedbackGenerator.selectionChanged()
+                    
                 }
                 
                 /// Item select
@@ -102,6 +106,8 @@ open class FLXTabbedMenu: UIView {
                     
                     delegate?.tabbedMenu(self, didSelectItemAtIndexPath: model.selectedItem! )
                     
+                    feedbackGenerator.selectionChanged()
+                    
                 }
                 
                 /// Category highlight
@@ -111,6 +117,8 @@ open class FLXTabbedMenu: UIView {
                     
                     item.isHighlighted = true
                     
+                    feedbackGenerator.selectionChanged()
+                    
                 }
                 
                 /// Item highlight
@@ -119,6 +127,8 @@ open class FLXTabbedMenu: UIView {
                     let item = itemMenu(at: model.highlightedItem!)
                     
                     item?.isHighlighted = true
+                    
+                    feedbackGenerator.selectionChanged()
                     
                 }
                 
@@ -137,6 +147,10 @@ open class FLXTabbedMenu: UIView {
     // MARK: Inbuilt gesture recognizer
     
     private let pressGestureRecognizer = FLXPressGestureRecognizer()
+    
+    // MARK: Haptic feedback generator
+    
+    let feedbackGenerator = UISelectionFeedbackGenerator()
 
     // MARK: Overridable default properties
     
